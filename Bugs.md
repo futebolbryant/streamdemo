@@ -23,12 +23,13 @@ Repro steps:
 - Expected: No overflow errors
 
 Log: (there are multiple of the same message)
-
+```
 ======== Exception caught by rendering library =====================================================
 A RenderFlex overflowed by 8.0 pixels on the right.
 The relevant error-causing widget was:
 Row file:///Users/myname/flutter/.pub-cache/hosted/pub.dartlang.org/stream_chat_flutter-1.0.2-beta/lib/src/channel_list_view.dart:404:21
 ====================================================================================================
+```
 
 ### Bug 2
 
