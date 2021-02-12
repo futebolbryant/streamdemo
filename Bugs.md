@@ -1,7 +1,7 @@
 ## Stream Flutter SDK Bug Tracking and Crucial Feature Requests
 stream_chat_flutter: ^1.0.2-beta
 
-####Notes
+#### Notes
 - See two sections, Bugs and Feature Requests
 - The most concerning bug is #3 as it renders the app completely unusable
 
@@ -11,7 +11,7 @@ stream_chat_flutter: ^1.0.2-beta
 - Android emulator: Pixel 4 API 30
 - *Note: I always ran the app in debug mode*
 
-#Bugs
+# Bugs
 
 ### Bug 1
 
