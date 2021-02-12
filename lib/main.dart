@@ -25,9 +25,11 @@ void main() async {
     logLevel: Level.WARNING,
   );
 
+  var userId = '1';
+
   await client.connectUser(
-    User(id: '1'),
-    client.devToken('1'),
+    User(id: userId),
+    client.devToken(userId),
   );
 
   var channel = client.channel('team', id: 'test-channel', extraData: {
@@ -35,9 +37,18 @@ void main() async {
   });
 
   await channel.create();
-  await channel.addMembers(['1']);
+  await channel.addMembers(
+      [userId],);
+
+  // NOTE: the commented out code below was used to repro some of the bugs in Bugs.md
+  // var channel2 = client.channel('team', id: 'test-channel2', extraData: {
+  //   'name': 'Bug repro2',
+  // });
   //
-  // client.queryChannels()
+  // await channel2.create();
+  // await channel2.addMembers([userId], Message(
+  //     text:
+  //     'This is a really long system message long system message long long so long omg it\'s so long blah blah blah blah blah blah blah blah'));
 
   runApp(MyApp(client));
 }
@@ -86,11 +97,7 @@ class ChannelListPage extends StatelessWidget {
         child: ChannelListView(
           filter: {
             'members': {
-              '\$in': [StreamChat
-                  .of(context)
-                  .user
-                  .id
-              ],
+              '\$in': [StreamChat.of(context).user.id],
             }
           },
           sort: [SortOption('last_message_at')],
